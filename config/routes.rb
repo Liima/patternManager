@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
+
+	resources :books, only: [:create, :index, :show], defaults: {format:'js'}
+	resources :patterns, only: [:new, :create, :index, :show], defaults: {format:'js'}
+	resources :categories, only: [:create, :index, :show, :update], defaults: {format:'js'}
+	root 'application#index'
+	# The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
